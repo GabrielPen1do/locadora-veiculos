@@ -35,7 +35,12 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
             entity.Property(x => x.Placa).IsRequired().HasMaxLength(7);
             entity.HasIndex(x => x.Placa).IsUnique();
             entity.Property(x => x.ValorDiaria).HasPrecision(18, 2);
-            entity.ToTable(t => { t.HasCheckConstraint("CK_Veiculo_Ano", "[Ano] > 1900"); t.HasCheckConstraint("CK_Veiculo_ValorDiaria", "[ValorDiaria] >= 0"); });
+            entity.ToTable(t =>
+            {
+                t.HasCheckConstraint("CK_Veiculo_Ano", "[Ano] > 1900");
+                t.HasCheckConstraint("CK_Veiculo_Quilometragem", "[Quilometragem] >= 0");
+                t.HasCheckConstraint("CK_Veiculo_ValorDiaria", "[ValorDiaria] >= 0");
+            });
             entity.HasOne(x => x.Fabricante).WithMany(x => x.Veiculos).HasForeignKey(x => x.FabricanteId).OnDelete(DeleteBehavior.Restrict);
             entity.HasOne(x => x.CategoriaVeiculo).WithMany(x => x.Veiculos).HasForeignKey(x => x.CategoriaVeiculoId).OnDelete(DeleteBehavior.Restrict);
         });
@@ -54,8 +59,17 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
         modelBuilder.Entity<Aluguel>(entity =>
         {
             entity.HasKey(x => x.Id);
+            entity.Property(x => x.ValorDiaria).HasPrecision(18, 2);
             entity.Property(x => x.ValorTotal).HasPrecision(18, 2);
-            entity.ToTable(t => { t.HasCheckConstraint("CK_Aluguel_Datas", "[DataFim] >= [DataInicio]"); t.HasCheckConstraint("CK_Aluguel_ValorTotal", "[ValorTotal] >= 0"); });
+            entity.ToTable(t =>
+            {
+                t.HasCheckConstraint("CK_Aluguel_Datas", "[DataFimPrevista] > [DataInicio]");
+                t.HasCheckConstraint("CK_Aluguel_DataDevolucao", "[DataDevolucao] IS NULL OR [DataDevolucao] >= [DataInicio]");
+                t.HasCheckConstraint("CK_Aluguel_QuilometragemInicial", "[QuilometragemInicial] >= 0");
+                t.HasCheckConstraint("CK_Aluguel_QuilometragemFinal", "[QuilometragemFinal] IS NULL OR [QuilometragemFinal] >= [QuilometragemInicial]");
+                t.HasCheckConstraint("CK_Aluguel_ValorDiaria", "[ValorDiaria] > 0");
+                t.HasCheckConstraint("CK_Aluguel_ValorTotal", "[ValorTotal] IS NULL OR [ValorTotal] >= 0");
+            });
             entity.HasOne(x => x.Cliente).WithMany(x => x.Alugueis).HasForeignKey(x => x.ClienteId).OnDelete(DeleteBehavior.Restrict);
             entity.HasOne(x => x.Veiculo).WithMany(x => x.Alugueis).HasForeignKey(x => x.VeiculoId).OnDelete(DeleteBehavior.Restrict);
         });

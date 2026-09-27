@@ -6,6 +6,7 @@ public class Veiculo
     public string Modelo { get; set; } = string.Empty;
     public string Placa { get; set; } = string.Empty;
     public int Ano { get; set; }
+    public int Quilometragem { get; set; }
     public decimal ValorDiaria { get; set; }
     public int FabricanteId { get; set; }
     public Fabricante Fabricante { get; set; } = null!;

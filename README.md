@@ -1,22 +1,33 @@
 # LocadoraVeiculos
 
-Etapa 1 da modelagem de um sistema de aluguel de veículos. A Solution `LocadoraVeiculos.sln` abre no Visual Studio 2022 e contém uma API ASP.NET Core com alvo .NET 8, Entity Framework Core 8 e SQL Server Express. Esta etapa contém somente o modelo de dados e a migration inicial; não há endpoints de negócio.
+Sistema de aluguel de veículos em ASP.NET Core com alvo .NET 8, Entity Framework Core 8 e SQL Server Express. A Solution `LocadoraVeiculos.sln` pode ser aberta no Visual Studio 2022.
 
 ## Estrutura
 
-- `LocadoraVeiculos.Api/Models`: Fabricante, CategoriaVeiculo, Veiculo, Cliente e Aluguel.
-- `LocadoraVeiculos.Api/Data/ApplicationContext.cs`: DbSets, chaves, relacionamentos e restrições.
-- `LocadoraVeiculos.Api/Migrations`: migration `InitialCreate`.
-- `MODELO_BANCO.md`: descrição das tabelas e regras.
+- `LocadoraVeiculos.Api/Models`: entidades do banco.
+- `LocadoraVeiculos.Api/Data/ApplicationContext.cs`: DbSets, relacionamentos e restrições.
+- `LocadoraVeiculos.Api/Dtos`: objetos de entrada e saída.
+- `LocadoraVeiculos.Api/Controllers`: endpoints CRUD e filtros.
+- `LocadoraVeiculos.Api/Migrations`: histórico de migrations.
+- `MODELO_BANCO.md`: descrição do banco.
+- `ROTAS.md`: relação dos endpoints.
 
 ## Configuração
 
-Instale o SDK e o runtime do .NET 8, SQL Server Express e, para aplicar migrations, `dotnet-ef` compatível com EF Core 8. A connection string `DefaultConnection` em `LocadoraVeiculos.Api/appsettings.json` aponta para `.\SQLEXPRESS` usando autenticação integrada do Windows. Ajuste o servidor por configuração local ou variável de ambiente `ConnectionStrings__DefaultConnection` conforme seu ambiente. Não grave credenciais no repositório.
+A connection string `DefaultConnection` em `LocadoraVeiculos.Api/appsettings.json` aponta para `.\SQLEXPRESS` usando autenticação integrada do Windows. Ela pode ser substituída localmente pela variável `ConnectionStrings__DefaultConnection`.
+
+## Etapa 2 - Backend
+
+A API possui controllers para fabricantes, categorias de veículos, veículos, clientes e aluguéis. Cada entidade oferece criação, consulta, atualização e exclusão por meio de DTOs. As validações tratam campos obrigatórios, duplicidades, chaves estrangeiras, datas, quilometragens e valores. Erros inesperados usam Problem Details sem expor informações internas.
+
+O `FiltrosController` contém cinco consultas relacionais. Três usam `INNER JOIN`: veículos por fabricante, veículos por categoria e aluguéis por cliente. Duas usam `LEFT JOIN`: clientes com aluguéis e veículos com histórico. Os resultados das consultas com `LEFT JOIN` incluem registros sem relacionamento.
+
+## Execução
 
 ```powershell
 dotnet restore
-dotnet build LocadoraVeiculos.sln
 dotnet ef database update --project LocadoraVeiculos.Api --startup-project LocadoraVeiculos.Api
+dotnet run --project LocadoraVeiculos.Api
 ```
 
-A criação do banco exige uma instância SQL Server Express acessível. A API não aplica migrations automaticamente.
+A API não aplica migrations automaticamente. O comando de atualização exige uma instância SQL Server Express acessível.
