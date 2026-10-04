@@ -37,7 +37,5 @@ A API não aplica migrations automaticamente. O comando de atualização exige u
 O Swagger/OpenAPI está integrado com Swashbuckle e documenta todos os controllers. Depois de iniciar a API, a interface fica disponível em `http://localhost:5099/swagger/index.html` quando a aplicação é executada nessa porta.
 
 - A descrição dos 30 endpoints está em `DOCUMENTACAO_API.md`.
-- O relatório dos 35 testes reais está em `RELATORIO_TESTES.md`.
-- Os resultados estruturados estão em `docs/resultados-testes.json`.
-- As 36 evidências estão em `docs/evidencias/`.
-- A suíte pode ser repetida com `powershell -ExecutionPolicy Bypass -File docs/executar-testes.ps1` enquanto a API estiver em execução.
+- O relatório dos 38 testes manuais está em `RELATORIO_TESTES.md`.
+- Os 38 prints obtidos pelo Swagger estão em `docs/evidencias/`.
