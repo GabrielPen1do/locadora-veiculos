@@ -20,7 +20,7 @@ public class VeiculosController(ApplicationContext context) : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<VeiculoResponse>> GetById(int id)
     {
-        var item = await Query().FirstOrDefaultAsync(x => x.Id == id);
+        var item = await Query(id).FirstOrDefaultAsync();
         return item is null ? NotFound() : Ok(item);
     }
 
@@ -41,7 +41,7 @@ public class VeiculosController(ApplicationContext context) : ControllerBase
         };
         context.Veiculos.Add(item);
         await context.SaveChangesAsync();
-        var response = await Query().FirstAsync(x => x.Id == item.Id);
+        var response = await Query(item.Id).FirstAsync();
         return CreatedAtAction(nameof(GetById), new { id = item.Id }, response);
     }
 
@@ -79,9 +79,14 @@ public class VeiculosController(ApplicationContext context) : ControllerBase
         return NoContent();
     }
 
-    private IQueryable<VeiculoResponse> Query() => context.Veiculos.AsNoTracking().Select(x =>
-        new VeiculoResponse(x.Id, x.Modelo, x.Placa, x.Ano, x.Quilometragem, x.ValorDiaria,
-            x.FabricanteId, x.Fabricante.Nome, x.CategoriaVeiculoId, x.CategoriaVeiculo.Nome));
+    private IQueryable<VeiculoResponse> Query(int? id = null)
+    {
+        var query = context.Veiculos.AsNoTracking();
+        if (id.HasValue) query = query.Where(x => x.Id == id.Value);
+        return query.Select(x => new VeiculoResponse(x.Id, x.Modelo, x.Placa, x.Ano,
+            x.Quilometragem, x.ValorDiaria, x.FabricanteId, x.Fabricante.Nome,
+            x.CategoriaVeiculoId, x.CategoriaVeiculo.Nome));
+    }
 
     private async Task<ActionResult?> Validar(VeiculoRequest request)
     {

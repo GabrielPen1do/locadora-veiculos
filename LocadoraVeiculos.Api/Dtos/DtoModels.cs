@@ -34,7 +34,7 @@ public class VeiculoRequest
     [Range(0, int.MaxValue)]
     public int Quilometragem { get; set; }
 
-    [Range(typeof(decimal), "0", "9999999999999999")]
+    [Range(0, 9999999999999999d)]
     public decimal ValorDiaria { get; set; }
 
     [Range(1, int.MaxValue)]
@@ -91,10 +91,10 @@ public class AluguelRequest
     [Range(0, int.MaxValue)]
     public int? QuilometragemFinal { get; set; }
 
-    [Range(typeof(decimal), "0.01", "9999999999999999")]
+    [Range(0.01, 9999999999999999d)]
     public decimal ValorDiaria { get; set; }
 
-    [Range(typeof(decimal), "0", "9999999999999999")]
+    [Range(0, 9999999999999999d)]
     public decimal? ValorTotal { get; set; }
 }
 

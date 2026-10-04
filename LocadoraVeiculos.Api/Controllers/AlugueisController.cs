@@ -20,7 +20,7 @@ public class AlugueisController(ApplicationContext context) : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<AluguelResponse>> GetById(int id)
     {
-        var item = await Query().FirstOrDefaultAsync(x => x.Id == id);
+        var item = await Query(id).FirstOrDefaultAsync();
         return item is null ? NotFound() : Ok(item);
     }
 
@@ -32,7 +32,7 @@ public class AlugueisController(ApplicationContext context) : ControllerBase
         var item = Mapear(request, new Aluguel());
         context.Alugueis.Add(item);
         await context.SaveChangesAsync();
-        var response = await Query().FirstAsync(x => x.Id == item.Id);
+        var response = await Query(item.Id).FirstAsync();
         return CreatedAtAction(nameof(GetById), new { id = item.Id }, response);
     }
 
@@ -58,10 +58,15 @@ public class AlugueisController(ApplicationContext context) : ControllerBase
         return NoContent();
     }
 
-    private IQueryable<AluguelResponse> Query() => context.Alugueis.AsNoTracking().Select(x =>
-        new AluguelResponse(x.Id, x.ClienteId, x.Cliente.Nome, x.VeiculoId, x.Veiculo.Modelo,
-            x.Veiculo.Placa, x.DataInicio, x.DataFimPrevista, x.DataDevolucao,
-            x.QuilometragemInicial, x.QuilometragemFinal, x.ValorDiaria, x.ValorTotal));
+    private IQueryable<AluguelResponse> Query(int? id = null)
+    {
+        var query = context.Alugueis.AsNoTracking();
+        if (id.HasValue) query = query.Where(x => x.Id == id.Value);
+        return query.Select(x => new AluguelResponse(x.Id, x.ClienteId, x.Cliente.Nome,
+            x.VeiculoId, x.Veiculo.Modelo, x.Veiculo.Placa, x.DataInicio,
+            x.DataFimPrevista, x.DataDevolucao, x.QuilometragemInicial,
+            x.QuilometragemFinal, x.ValorDiaria, x.ValorTotal));
+    }
 
     private async Task<ActionResult?> Validar(AluguelRequest request)
     {

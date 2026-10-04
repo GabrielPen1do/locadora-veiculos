@@ -1,0 +1,372 @@
+﻿[
+    {
+        "Numero":  1,
+        "Nome":  "Cadastrar fabricante",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/fabricantes",
+        "CorpoEnviado":  "{\"nome\":\"Teste Fabricante 134734\"}",
+        "Status":  201,
+        "Retorno":  "{\"id\":13,\"nome\":\"Teste Fabricante 134734\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  2,
+        "Nome":  "Listar fabricantes",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/fabricantes",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"id\":13,\"nome\":\"Teste Fabricante 134734\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  3,
+        "Nome":  "Consultar fabricante por ID",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/fabricantes/13",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "{\"id\":13,\"nome\":\"Teste Fabricante 134734\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  4,
+        "Nome":  "Atualizar fabricante",
+        "Metodo":  "PUT",
+        "Endpoint":  "/api/fabricantes/13",
+        "CorpoEnviado":  "{\"nome\":\"Teste Fabricante Atualizado 134734\"}",
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  5,
+        "Nome":  "Excluir fabricante",
+        "Metodo":  "DELETE",
+        "Endpoint":  "/api/fabricantes/13",
+        "CorpoEnviado":  null,
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  6,
+        "Nome":  "Cadastrar categoria",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/categoriasveiculos",
+        "CorpoEnviado":  "{\"descricao\":\"Categoria criada pelos testes da Etapa 3\",\"nome\":\"Teste Categoria 134734\"}",
+        "Status":  201,
+        "Retorno":  "{\"id\":12,\"nome\":\"Teste Categoria 134734\",\"descricao\":\"Categoria criada pelos testes da Etapa 3\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:34"
+    },
+    {
+        "Numero":  7,
+        "Nome":  "Listar categorias",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/categoriasveiculos",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"id\":12,\"nome\":\"Teste Categoria 134734\",\"descricao\":\"Categoria criada pelos testes da Etapa 3\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  8,
+        "Nome":  "Consultar categoria por ID",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/categoriasveiculos/12",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "{\"id\":12,\"nome\":\"Teste Categoria 134734\",\"descricao\":\"Categoria criada pelos testes da Etapa 3\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  9,
+        "Nome":  "Atualizar categoria",
+        "Metodo":  "PUT",
+        "Endpoint":  "/api/categoriasveiculos/12",
+        "CorpoEnviado":  "{\"descricao\":\"Categoria atualizada\",\"nome\":\"Teste Categoria Atualizada 134734\"}",
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  10,
+        "Nome":  "Excluir categoria",
+        "Metodo":  "DELETE",
+        "Endpoint":  "/api/categoriasveiculos/12",
+        "CorpoEnviado":  null,
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  11,
+        "Nome":  "Cadastrar cliente",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/clientes",
+        "CorpoEnviado":  "{\"email\":\"cliente.134734@exemplo.com\",\"cpf\":\"71347340000\",\"nome\":\"Cliente Teste\",\"telefone\":\"31999990000\"}",
+        "Status":  201,
+        "Retorno":  "{\"id\":19,\"nome\":\"Cliente Teste\",\"cpf\":\"71347340000\",\"email\":\"cliente.134734@exemplo.com\",\"telefone\":\"31999990000\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  12,
+        "Nome":  "Listar clientes",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/clientes",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"id\":19,\"nome\":\"Cliente Teste\",\"cpf\":\"71347340000\",\"email\":\"cliente.134734@exemplo.com\",\"telefone\":\"31999990000\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  13,
+        "Nome":  "Consultar cliente por ID",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/clientes/19",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "{\"id\":19,\"nome\":\"Cliente Teste\",\"cpf\":\"71347340000\",\"email\":\"cliente.134734@exemplo.com\",\"telefone\":\"31999990000\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  14,
+        "Nome":  "Atualizar cliente",
+        "Metodo":  "PUT",
+        "Endpoint":  "/api/clientes/19",
+        "CorpoEnviado":  "{\"email\":\"cliente.134734@exemplo.com\",\"cpf\":\"71347340000\",\"nome\":\"Cliente Teste Atualizado\",\"telefone\":\"31999991111\"}",
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  15,
+        "Nome":  "Excluir cliente",
+        "Metodo":  "DELETE",
+        "Endpoint":  "/api/clientes/19",
+        "CorpoEnviado":  null,
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  16,
+        "Nome":  "Cadastrar veículo",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/veiculos",
+        "CorpoEnviado":  "{\"valorDiaria\":180.5,\"quilometragem\":100,\"modelo\":\"Pulse Teste\",\"categoriaVeiculoId\":13,\"placa\":\"T134734\",\"ano\":2025,\"fabricanteId\":14}",
+        "Status":  201,
+        "Retorno":  "{\"id\":15,\"modelo\":\"Pulse Teste\",\"placa\":\"T134734\",\"ano\":2025,\"quilometragem\":100,\"valorDiaria\":180.50,\"fabricanteId\":14,\"fabricante\":\"Fiat Teste 134734\",\"categoriaVeiculoId\":13,\"categoria\":\"SUV Teste 134734\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  17,
+        "Nome":  "Listar veículos",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/veiculos",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"id\":15,\"modelo\":\"Pulse Teste\",\"placa\":\"T134734\",\"ano\":2025,\"quilometragem\":100,\"valorDiaria\":180.50,\"fabricanteId\":14,\"fabricante\":\"Fiat Teste 134734\",\"categoriaVeiculoId\":13,\"categoria\":\"SUV Teste 134734\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  18,
+        "Nome":  "Consultar veículo por ID",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/veiculos/15",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "{\"id\":15,\"modelo\":\"Pulse Teste\",\"placa\":\"T134734\",\"ano\":2025,\"quilometragem\":100,\"valorDiaria\":180.50,\"fabricanteId\":14,\"fabricante\":\"Fiat Teste 134734\",\"categoriaVeiculoId\":13,\"categoria\":\"SUV Teste 134734\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  19,
+        "Nome":  "Atualizar veículo",
+        "Metodo":  "PUT",
+        "Endpoint":  "/api/veiculos/15",
+        "CorpoEnviado":  "{\"valorDiaria\":190,\"quilometragem\":250,\"modelo\":\"Pulse Teste Atualizado\",\"categoriaVeiculoId\":13,\"placa\":\"T134734\",\"ano\":2025,\"fabricanteId\":14}",
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  20,
+        "Nome":  "Excluir veículo",
+        "Metodo":  "DELETE",
+        "Endpoint":  "/api/veiculos/15",
+        "CorpoEnviado":  null,
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  21,
+        "Nome":  "Cadastrar aluguel",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/alugueis",
+        "CorpoEnviado":  "{\"valorTotal\":null,\"clienteId\":20,\"quilometragemInicial\":1000,\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"valorDiaria\":150,\"dataInicio\":\"2026-10-04T10:00:00\",\"dataDevolucao\":null,\"quilometragemFinal\":null,\"veiculoId\":16}",
+        "Status":  201,
+        "Retorno":  "{\"id\":2,\"clienteId\":20,\"cliente\":\"Cliente Aluguel Teste\",\"veiculoId\":16,\"veiculo\":\"Argo Teste\",\"placa\":\"A134734\",\"dataInicio\":\"2026-10-04T10:00:00\",\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"dataDevolucao\":null,\"quilometragemInicial\":1000,\"quilometragemFinal\":null,\"valorDiaria\":150.00,\"valorTotal\":null}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  22,
+        "Nome":  "Listar aluguéis",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/alugueis",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"id\":2,\"clienteId\":20,\"cliente\":\"Cliente Aluguel Teste\",\"veiculoId\":16,\"veiculo\":\"Argo Teste\",\"placa\":\"A134734\",\"dataInicio\":\"2026-10-04T10:00:00\",\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"dataDevolucao\":null,\"quilometragemInicial\":1000,\"quilometragemFinal\":null,\"valorDiaria\":150.00,\"valorTotal\":null}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  23,
+        "Nome":  "Consultar aluguel por ID",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/alugueis/2",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "{\"id\":2,\"clienteId\":20,\"cliente\":\"Cliente Aluguel Teste\",\"veiculoId\":16,\"veiculo\":\"Argo Teste\",\"placa\":\"A134734\",\"dataInicio\":\"2026-10-04T10:00:00\",\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"dataDevolucao\":null,\"quilometragemInicial\":1000,\"quilometragemFinal\":null,\"valorDiaria\":150.00,\"valorTotal\":null}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  24,
+        "Nome":  "Atualizar aluguel",
+        "Metodo":  "PUT",
+        "Endpoint":  "/api/alugueis/2",
+        "CorpoEnviado":  "{\"valorTotal\":450,\"clienteId\":20,\"quilometragemInicial\":1000,\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"valorDiaria\":150,\"dataInicio\":\"2026-10-04T10:00:00\",\"dataDevolucao\":\"2026-10-06T15:00:00\",\"quilometragemFinal\":1280,\"veiculoId\":16}",
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  25,
+        "Nome":  "Filtrar veículos por fabricante",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/filtros/veiculos-por-fabricante?fabricante=Fiat%20Teste%20134734",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"veiculoId\":16,\"modelo\":\"Argo Teste\",\"placa\":\"A134734\",\"ano\":2024,\"quilometragem\":1000,\"fabricante\":\"Fiat Teste 134734\"},{\"veiculoId\":17,\"modelo\":\"Toro Sem Historico\",\"placa\":\"H134734\",\"ano\":2023,\"quilometragem\":2000,\"fabricante\":\"Fiat Teste 134734\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  26,
+        "Nome":  "Filtrar veículos por categoria",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/filtros/veiculos-por-categoria?categoria=SUV%20Teste%20134734",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"veiculoId\":16,\"modelo\":\"Argo Teste\",\"placa\":\"A134734\",\"ano\":2024,\"quilometragem\":1000,\"categoria\":\"SUV Teste 134734\"},{\"veiculoId\":17,\"modelo\":\"Toro Sem Historico\",\"placa\":\"H134734\",\"ano\":2023,\"quilometragem\":2000,\"categoria\":\"SUV Teste 134734\"}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  27,
+        "Nome":  "Filtrar aluguéis por cliente",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/filtros/alugueis-por-cliente?cpf=81347340000",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"aluguelId\":2,\"cliente\":\"Cliente Aluguel Teste\",\"cpf\":\"81347340000\",\"veiculo\":\"Argo Teste\",\"placa\":\"A134734\",\"dataInicio\":\"2026-10-04T10:00:00\",\"dataFimPrevista\":\"2026-10-07T10:00:00\",\"dataDevolucao\":\"2026-10-06T15:00:00\",\"valorDiaria\":150.00,\"valorTotal\":450.00}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  28,
+        "Nome":  "Listar clientes com ou sem aluguéis",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/filtros/clientes-com-alugueis",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"clienteId\":20,\"nome\":\"Cliente Aluguel Teste\",\"cpf\":\"81347340000\",\"aluguelId\":2,\"dataInicio\":\"2026-10-04T10:00:00\",\"dataFimPrevista\":\"2026-10-07T10:00:00\"},{\"clienteId\":21,\"nome\":\"Cliente Sem Aluguel\",\"cpf\":\"91347340000\",\"aluguelId\":null,\"dataInicio\":null,\"dataFimPrevista\":null}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  29,
+        "Nome":  "Listar veículos com ou sem histórico",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/filtros/veiculos-com-historico",
+        "CorpoEnviado":  null,
+        "Status":  200,
+        "Retorno":  "[{\"veiculoId\":16,\"modelo\":\"Argo Teste\",\"placa\":\"A134734\",\"quilometragem\":1000,\"aluguelId\":2,\"dataInicio\":\"2026-10-04T10:00:00\",\"dataDevolucao\":\"2026-10-06T15:00:00\"},{\"veiculoId\":17,\"modelo\":\"Toro Sem Historico\",\"placa\":\"H134734\",\"quilometragem\":2000,\"aluguelId\":null,\"dataInicio\":null,\"dataDevolucao\":null}]",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  30,
+        "Nome":  "Excluir aluguel",
+        "Metodo":  "DELETE",
+        "Endpoint":  "/api/alugueis/2",
+        "CorpoEnviado":  null,
+        "Status":  204,
+        "Retorno":  [
+
+                    ],
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  31,
+        "Nome":  "Consultar ID inexistente",
+        "Metodo":  "GET",
+        "Endpoint":  "/api/clientes/99999999",
+        "CorpoEnviado":  null,
+        "Status":  404,
+        "Retorno":  "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Not Found\",\"status\":404,\"traceId\":\"00-3ec903269c5a024087b3ebd157595fc5-f76d94851b1e07c2-00\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  32,
+        "Nome":  "Validar campo obrigatório",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/fabricantes",
+        "CorpoEnviado":  "{\"nome\":\" \"}",
+        "Status":  400,
+        "Retorno":  "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"Nome\":[\"The Nome field is required.\"]},\"traceId\":\"00-ce49a67769c706c99942a80ba51e05aa-5e309c0601fa8c78-00\"}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  33,
+        "Nome":  "Validar placa duplicada",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/veiculos",
+        "CorpoEnviado":  "{\"valorDiaria\":100,\"quilometragem\":0,\"modelo\":\"Duplicado\",\"categoriaVeiculoId\":13,\"placa\":\"A134734\",\"ano\":2024,\"fabricanteId\":14}",
+        "Status":  409,
+        "Retorno":  "{\"title\":\"Já existe um veículo com essa placa.\",\"status\":409}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  34,
+        "Nome":  "Validar CPF duplicado",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/clientes",
+        "CorpoEnviado":  "{\"email\":\"outro.134734@exemplo.com\",\"cpf\":\"81347340000\",\"nome\":\"Duplicado\",\"telefone\":\"31900000000\"}",
+        "Status":  409,
+        "Retorno":  "{\"title\":\"Já existe um cliente com esse CPF.\",\"status\":409}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    },
+    {
+        "Numero":  35,
+        "Nome":  "Validar chave estrangeira",
+        "Metodo":  "POST",
+        "Endpoint":  "/api/veiculos",
+        "CorpoEnviado":  "{\"valorDiaria\":100,\"quilometragem\":0,\"modelo\":\"FK Invalida\",\"categoriaVeiculoId\":13,\"placa\":\"F134734\",\"ano\":2024,\"fabricanteId\":99999999}",
+        "Status":  400,
+        "Retorno":  "{\"title\":\"FabricanteId inválido.\",\"status\":400}",
+        "ExecutadoEm":  "2026-10-04 14:25:35"
+    }
+]

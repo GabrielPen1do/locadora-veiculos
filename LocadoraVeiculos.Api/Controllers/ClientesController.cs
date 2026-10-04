@@ -20,7 +20,7 @@ public class ClientesController(ApplicationContext context) : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<ClienteResponse>> GetById(int id)
     {
-        var item = await Query().FirstOrDefaultAsync(x => x.Id == id);
+        var item = await Query(id).FirstOrDefaultAsync();
         return item is null ? NotFound() : Ok(item);
     }
 
@@ -71,8 +71,12 @@ public class ClientesController(ApplicationContext context) : ControllerBase
         return NoContent();
     }
 
-    private IQueryable<ClienteResponse> Query() => context.Clientes.AsNoTracking()
-        .Select(x => new ClienteResponse(x.Id, x.Nome, x.Cpf, x.Email, x.Telefone));
+    private IQueryable<ClienteResponse> Query(int? id = null)
+    {
+        var query = context.Clientes.AsNoTracking();
+        if (id.HasValue) query = query.Where(x => x.Id == id.Value);
+        return query.Select(x => new ClienteResponse(x.Id, x.Nome, x.Cpf, x.Email, x.Telefone));
+    }
 
     private async Task<ActionResult?> ValidarDuplicidade(string cpfInformado, string emailInformado, int? id)
     {
